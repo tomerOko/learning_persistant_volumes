@@ -1,0 +1,25 @@
+apiVersion: v1 # kubernetes api version
+kind: PersistentVolume #the type of the object
+metadata:
+  name: exapmle-persistent-volume # how to find this volume in other artifacts
+  labels:
+    type: local #??
+spec:
+  capacity:
+    storage: 1Gi # the size of the v
+  accessModes:
+    - ReadWriteOnce # ??
+  storageClassName: hostpath # the type of the volume (gce, azure, aws, local, NFS, etc..)
+  # each storage class has it own additional setting that are needed for it.
+  hostPath:
+    path: "/mnt/data" # where on the host file to save the files
+
+
+
+  # mountOptions: # ??
+  #   - hard # ??
+  #   - nfsvers=4.1 # ??
+  # persistentVolumeReclaimPolicy: Recycle # ??
+  # volumeMode: Filesystem #??
+
+
